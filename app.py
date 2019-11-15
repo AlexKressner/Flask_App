@@ -14,11 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False #change extension behavior a
 app.secret_key = 'Alex'
 api = Api(app)
 
-#creates the databasae as defined by the URI and all the tables on the fly before the app runs
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 
 jwt = JWT(app, authenticate, identity) #/auth endpoint
 
